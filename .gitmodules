@@ -1,0 +1,4 @@
+[submodule "glfw-3.3"]
+	path = glfw-3.3
+	url = https://github.com/glfw/glfw.git
+	branch = 3.3-stable
