@@ -13,15 +13,16 @@ find_package(OpenGL REQUIRED)
 set(GLFW_BUILD_DOCS OFF CACHE BOOL "" FORCE)
 set(GLFW_BUILD_TESTS OFF CACHE BOOL "" FORCE)
 set(GLFW_BUILD_EXAMPLES OFF CACHE BOOL "" FORCE)
-add_subdirectory(glfw-3.3)
-include_directories(glfw-3.3/include)
+add_subdirectory(${PROJECT_SOURCE_DIR}/thirdparty/glfw-3.3)
+include_directories(${PROJECT_SOURCE_DIR}/thirdparty/glfw-3.3/include)
 
 # GLEW
-find_package(GLEW REQUIRED)
-include_directories(${GLEW_INCLUDE_DIRS})
+# find_package(GLEW REQUIRED)
+add_subdirectory(${PROJECT_SOURCE_DIR}/thirdparty/glew-2.1.0/build/cmake)
+include_directories(${PROJECT_SOURCE_DIR}/thirdparty/glew-2.1.0/include)
 
 include_directories("${CMAKE_SOURCE_DIR}/include")
 
 add_executable(main src/main.cpp)
 
-target_link_libraries(main ${OPENGL_LIBRARY} glfw ${GLEW_LIBRARIES})
+target_link_libraries(main ${OPENGL_LIBRARY} glfw glew_s)
