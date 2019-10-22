@@ -406,3 +406,7 @@ MigrationBackup/
 
 build/
 thirdparty/
+
+\.idea/
+
+cmake-build-debug/
