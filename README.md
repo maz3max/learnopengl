@@ -7,4 +7,4 @@ On Debian, you need the `xorg-dev` package for building GLFW.
 
 GLFW (manages window creation and inputs): https://www.glfw.org/
 
-GLAD (OpenGL extension loader): https://glad.dav1d.de/
+GLEW, the OpenGL Extension Wrangler Library: http://glew.sourceforge.net/basic.html

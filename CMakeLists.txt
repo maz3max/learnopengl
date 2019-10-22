@@ -14,15 +14,14 @@ set(GLFW_BUILD_DOCS OFF CACHE BOOL "" FORCE)
 set(GLFW_BUILD_TESTS OFF CACHE BOOL "" FORCE)
 set(GLFW_BUILD_EXAMPLES OFF CACHE BOOL "" FORCE)
 add_subdirectory(glfw-3.3)
+include_directories(glfw-3.3/include)
 
-# GLAD
-add_library(GLAD "src/glad.c")
-if (UNIX)
-	target_link_libraries(GLAD dl) # dynamic linking library
-endif (UNIX)
+# GLEW
+find_package(GLEW REQUIRED)
+include_directories(${GLEW_INCLUDE_DIRS})
 
 include_directories("${CMAKE_SOURCE_DIR}/include")
 
 add_executable(main src/main.cpp)
 
-target_link_libraries(main GLAD glfw ${OPENGL_LIBRARY})
+target_link_libraries(main ${OPENGL_LIBRARY} glfw ${GLEW_LIBRARIES})
